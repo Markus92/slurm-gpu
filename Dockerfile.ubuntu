@@ -36,5 +36,7 @@ RUN mkdir -p /tmp/slurm-build/share/pkgconfig \
 COPY slurm.pc /tmp/slurm-build/share/pkgconfig/slurm.pc
 COPY slurm.pc /tmp/slurm-build/lib/pkgconfig/slurm.pc
 
+WORKDIR /tmp/slurm-build
+
 RUN fpm -s dir -t deb -n slurm -v ${SLURM_VERSION} --iteration ${PKG_VERSION} --prefix=/usr -C /tmp/slurm-build \
         $(for pkg in $(cat /tmp/slurm-packages); do echo --depends $pkg; done) . 
