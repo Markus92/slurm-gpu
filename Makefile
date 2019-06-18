@@ -12,8 +12,8 @@ default: clean copy
 
 BUILD_DISTRO ?= ubuntu
 ifeq ($(BUILD_DISTRO), ubuntu)
-        BASE_IMAGE := ubuntu:16.04
-        IMAGE_NAME := build-slurm:ubuntu-16.04
+        BASE_IMAGE := ubuntu:18.04
+        IMAGE_NAME := build-slurm:ubuntu-18.04
         FILE_EXT := _amd64.deb
         FILE_PRE := _
 endif 
